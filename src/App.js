@@ -1,13 +1,13 @@
-import React from 'react';
-import {NavBar} from './components/NavBar';
+import React, { Component } from "react";
+import NavBar from './components/NavBar';
 import {Dashboard} from './components/Dashboard';
 import './App.css';
 
 
-class App extends React.Component() {
+class App extends Component() {
 
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
   
     this.state = {
        isLoggedIn: true
@@ -35,4 +35,4 @@ class App extends React.Component() {
   }
 }
 
-export default App;
+export default App

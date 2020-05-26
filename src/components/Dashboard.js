@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Cards from './Cards'
 import '../App.css';
 
-class Dashboard extends React.Component {
+export class Dashboard extends Component {
 
     constructor(props) {
         super(props)
@@ -24,5 +24,3 @@ class Dashboard extends React.Component {
       }
       
 }
-
-export default Dashboard;
