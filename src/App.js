@@ -1,37 +1,50 @@
 import React, { Component } from "react";
 import NavBar from './components/NavBar';
-import {Dashboard} from './components/Dashboard';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 
-class App extends Component() {
+class App extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
   
     this.state = {
-       isLoggedIn: true
+       isLoggedIn: false,
+       online: false,
+       currentVolume: 50,
+       quality: "med",
     }
   }
 
 
+  login = (e) => {
+    e.preventDefault();
+    this.setState({
+      isLoggedIn: !this.state.isLoggedIn,
+    })
+  }
+
+  onlineChange = () => {
+    this.setState({
+      online: !this.state.online
+    })
+  }
+
   render() {
-    if (this.state.loggedIn) {
-      return (        
+      return this.state.isLoggedIn 
+      ? (
         <div>
           <NavBar />
-          <Dashboard />
-        </div>)
-    } else {
-      return (
-          <div>        
-          {/* the code for your login screen */}
-          {console.log("justin")};
-          <p>Justin</p>
+          <Dashboard onClick={this.onlineChange}onlineChange={this.onlineChange} volumeChange={this.volumeChange} qualityChange={this.qualityChange} online={this.state.online} volume={this.state.volume} quality={this.state.quality}/>
         </div>
-
-      )
-    }
+        )
+      : 
+        <div>
+          <NavBar />
+          <Login onClick={this.login}/>
+        </div>
   }
 }
 
