@@ -18,7 +18,7 @@ class App extends Component {
     }
   }
 
-
+  // Login componets calls function login when button on the ogin componenet is fixed
   login = (e) => {
     e.preventDefault();
     this.setState({
@@ -26,18 +26,42 @@ class App extends Component {
     })
   }
 
-  onlineChange = () => {
+
+  // should change the status of online
+  onlineStatusChange = () => {
     this.setState({
       online: !this.state.online
     })
   }
+
+  // 
+  volumeChange = (event, value) => {
+    this.setState({ 
+      currentVolume: event.target.value 
+    });
+  }
+
+  // this one works
+  qualityChange = (event, value ) => {
+    this.setState({ 
+      quality: event.target.value 
+    });
+  }
+
+
 
   render() {
       return this.state.isLoggedIn 
       ? (
         <div>
           <NavBar />
-          <Dashboard onClick={this.onlineChange}onlineChange={this.onlineChange} volumeChange={this.volumeChange} qualityChange={this.qualityChange} online={this.state.online} volume={this.state.volume} quality={this.state.quality}/>
+          <Dashboard 
+            onlineStatusChange={this.onlineStatusChange}
+            volumeChange={this.volumeChange} 
+            qualityChange={this.qualityChange} 
+            online={this.state.online} 
+            currentVolume={this.state.currentVolume} 
+            quality={this.state.quality}/>
         </div>
         )
       : 

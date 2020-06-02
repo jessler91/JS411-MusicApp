@@ -23,13 +23,12 @@ function Dashboard(props) {
           <Card classname="card" variant="outlined">
               <CardContent>
                   <h4>Online Mode</h4>
-                  <p>Is this application connected to the internet?</p>
-
+                  <p>Is this Application Connected to the Internet?</p>
                   <Switch>
-                    onChange={props.onlineStatus}
+                    onChange={props.switchStatus}
+                    online={props.online}
                     name="onlineMode"
                     inputProps={{ 'aria-label': 'default checkbox' }}
-                    online={props.online}
                   </Switch>
 
               </CardContent>
@@ -44,8 +43,7 @@ function Dashboard(props) {
                   <p>Overrides all other sound settings in this application</p>
                   
                   <Slider>
-                    value={props.volume}
-                    defaultValue={50}
+                    value={props.currentVolume}
                     onChange={props.changeVolume}
                     aria-labelledby="discrete-slider"
                     valueLabelDisplay="auto"
@@ -54,6 +52,14 @@ function Dashboard(props) {
                     max={100}
                   </Slider>
 
+
+                  {/* <Slider 
+                    value={props.currentVolume} 
+                    onChange={props.changeVolume} 
+                    aria-labelledby="continuous-slider" 
+                  /> */}
+
+                  
               </CardContent>
           </Card>
           
@@ -80,12 +86,14 @@ function Dashboard(props) {
               </CardContent>
           </Card>
 
-
+        
+        {/* Rendering the system notifications at the bottom of the dashboard.
+        I am having trouble gettting the state to update for the two second cards.
+        So I am just going to pass for now. */}
         </div>
           <h3>System Notifications:</h3>
-    
-
-
+          <p>Sorry, I am unable to get this one completed.</p>
+          <p>I promise myself to come back and finish at a later date.</p>
       </div>
 
 
