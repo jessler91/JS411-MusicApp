@@ -20,13 +20,13 @@ function Dashboard(props) {
 
           {/* This is Card #1
           a Switch for connection status */}
-          <Card classname="card" variant="outlined">
+          <Card className="card" variant="outlined">
               <CardContent>
                   <h4>Online Mode</h4>
                   <p>Is this Application Connected to the Internet?</p>
                   <Switch>
-                    onChange={props.switchStatus}
-                    online={props.online}
+                    value={props.online}
+                    onChange={props.onlineStatusChange}
                     name="onlineMode"
                     inputProps={{ 'aria-label': 'default checkbox' }}
                   </Switch>
@@ -37,7 +37,7 @@ function Dashboard(props) {
           
             {/* This is Card #2
           a Slider for connection status */}
-          <Card classname="card" variant="outlined">
+          <Card className="card" variant="outlined">
               <CardContent>
                   <h4>Master Volume</h4>
                   <p>Overrides all other sound settings in this application</p>
@@ -45,7 +45,6 @@ function Dashboard(props) {
                   <Slider>
                     value={props.currentVolume}
                     onChange={props.changeVolume}
-                    aria-labelledby="discrete-slider"
                     valueLabelDisplay="auto"
                     step={10}
                     min={0}
@@ -65,7 +64,7 @@ function Dashboard(props) {
           
           
           
-          <Card classname="card" variant="outlined">
+          <Card className="card" variant="outlined">
 
               <CardContent>
                   <h4>Sound Quality</h4>
@@ -91,9 +90,11 @@ function Dashboard(props) {
         I am having trouble gettting the state to update for the two second cards.
         So I am just going to pass for now. */}
         </div>
-          <h3>System Notifications:</h3>
+        <h3>System Notifications:</h3>
+          <ul>
           <p>Sorry, I am unable to get this one completed.</p>
           <p>I promise myself to come back and finish at a later date.</p>
+          </ul>
       </div>
 
 

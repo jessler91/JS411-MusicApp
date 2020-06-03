@@ -14,12 +14,13 @@ class App extends Component {
        isLoggedIn: false,
        online: false,
        currentVolume: 50,
-       quality: "med",
+       quality: "Normal",
     }
   }
 
   // Login componets calls function login when button on the ogin componenet is fixed
   login = (e) => {
+    console.log('clicked the login function, should nagivate to the Dashboard component')
     e.preventDefault();
     this.setState({
       isLoggedIn: !this.state.isLoggedIn,
@@ -29,20 +30,23 @@ class App extends Component {
 
   // should change the status of online
   onlineStatusChange = () => {
+    console.log("inside onlineStatusChange function")
     this.setState({
       online: !this.state.online
     })
   }
 
-  // 
-  volumeChange = (event, value) => {
+  // should change the volume with the default set to the props.
+  volumeChange = (event, updatedVolume) => {
+    console.log('inside volumeChange function')
     this.setState({ 
-      currentVolume: event.target.value 
+      currentVolume: updatedVolume 
     });
   }
 
   // this one works
-  qualityChange = (event, value ) => {
+  qualityChange = (event) => {
+    console.log('inside qualityChnage function')
     this.setState({ 
       quality: event.target.value 
     });
